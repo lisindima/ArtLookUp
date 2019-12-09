@@ -24,7 +24,7 @@ class VisionObjectRecognitionViewController: ViewController {
         let error: NSError! = nil
         
         do {
-            let visionModel = try VNCoreMLModel(for: CarRecognition().model)
+            let visionModel = try VNCoreMLModel(for: Resnet50().model)
             let objectRecognition = VNCoreMLRequest(model: visionModel, completionHandler: { (request, error) in
                 self.delegate?.mostLikelyObject(object: request.results?.first as? VNClassificationObservation)
             })
